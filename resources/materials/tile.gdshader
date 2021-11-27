@@ -1,20 +1,13 @@
 shader_type spatial;
-render_mode cull_disabled;
+render_mode unshaded;
 
-uniform vec4 col : hint_color = vec4(1.0);
-uniform vec2 seed = vec2(0.137, 0.519);
-
-float hash(vec2 p) {
-  return fract(sin(dot(p * 17.17, seed)) * 4791.9511);
-}
+uniform sampler2D gradient : hint_albedo;
+uniform sampler2D noise : hint_black;
 
 void fragment()
 {
 	vec2 uvs = UV;
-	uvs = floor(uvs * 16.0) /16.0;
-	float noise = hash(uvs);
-	noise = floor(noise * 2.0) / 2.0;
-	noise = ceil(noise);
-	float grayscale = mix(0.8, 1.0, noise);
-	ALBEDO = vec3(grayscale) * col.rgb;
+	float grayscale = texture(noise, uvs).r;
+	grayscale = floor(grayscale * 4.0) / 4.0;
+	ALBEDO = texture(gradient, vec2(grayscale, 0.0)).rgb;
 }
