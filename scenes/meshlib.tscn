@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[node name="meshlib" type="Spatial"]
+
+[node name="wall" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="staticbody" type="StaticBody" parent="wall" groups=[
+"wall",
+]]
+
+[node name="colshape" type="CollisionShape" parent="wall/staticbody"]
+shape = SubResource( 2 )
