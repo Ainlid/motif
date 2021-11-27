@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://resources/materials/tile.gdshader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/col = Color( 0.501961, 0.501961, 0.768627, 1 )
+shader_param/seed = Vector2( 0.137, 0.519 )

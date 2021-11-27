@@ -18,7 +18,10 @@ func _ready():
 func _generate_maze():
 	for n_x in size_x:
 		for n_z in size_z:
+			#spawn walls
 			gridmap.set_cell_item(n_x, 0, n_z, 0)
+			#spawn floor
+			gridmap.set_cell_item(n_x, -1, n_z, 1)
 	var walker = Walker.new(Vector2(floor(size_x / 2), floor(size_z / 2)), borders)
 	var map = walker._walk(steps_amount)
 	walker.queue_free()
