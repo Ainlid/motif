@@ -6,6 +6,7 @@ uniform sampler2D noise : hint_black;
 void fragment()
 {
 	vec2 uvs = UV;
+	uvs *= 4.0;
 	float grayscale = texture(noise, uvs).r;
 	float colors_amount = 4.0;
 	grayscale = floor(grayscale * colors_amount) / colors_amount;
