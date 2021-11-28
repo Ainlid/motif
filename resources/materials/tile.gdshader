@@ -12,11 +12,14 @@ void fragment()
 	float grayscale = texture(noise, uvs).r;
 	float contrast = 8.0;
 	grayscale = (grayscale - 0.5) * contrast + 0.5;
-	//clamp the value to avoid incorrect colors later
-	grayscale = clamp(grayscale, 0.0, 1.0);
+	//has a line drawing effect
+	//grayscale -= 0.5;
+	//grayscale = 1.0 - abs(grayscale);
 	//posterize the noise
 	float posterization = 4.0;
 	grayscale = floor(grayscale * posterization) / posterization;
+	//clamp the value to avoid incorrect colors later
+	grayscale = clamp(grayscale, 0.0, 1.0);
 	//mix between two colors using the grayscale value
 	ALBEDO = mix(color1, color2, grayscale).rgb;
 }
