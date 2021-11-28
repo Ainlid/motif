@@ -1,24 +1,8 @@
-[gd_resource type="ShaderMaterial" load_steps=6 format=2]
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
 [ext_resource path="res://resources/materials/tile.gdshader" type="Shader" id=1]
 
-[sub_resource type="Gradient" id=1]
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
-[sub_resource type="OpenSimplexNoise" id=3]
-seed = 4
-period = 4.0
-
-[sub_resource type="NoiseTexture" id=4]
-flags = 3
-width = 32
-height = 32
-seamless = true
-noise = SubResource( 3 )
-
 [resource]
 shader = ExtResource( 1 )
-shader_param/gradient = SubResource( 2 )
-shader_param/noise = SubResource( 4 )
+shader_param/color1 = Color( 1, 1, 1, 1 )
+shader_param/color2 = Color( 1, 1, 1, 1 )

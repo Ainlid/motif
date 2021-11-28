@@ -3,6 +3,7 @@
 [ext_resource path="res://scripts/fader.gd" type="Script" id=1]
 
 [node name="fader" type="CanvasLayer"]
+pause_mode = 2
 layer = 100
 script = ExtResource( 1 )
 

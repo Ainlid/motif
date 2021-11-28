@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var path = "test"
-const menu_path = "test"
+const menu_path = "res://scenes/main_menu.tscn"
 const dream_path = "res://scenes/main.tscn"
 
 var duration = 0.5
