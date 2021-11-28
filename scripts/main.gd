@@ -38,8 +38,8 @@ func _generate_mats():
 		#enable mipmapping and repeating
 		noise_tex.set_flags(Texture.FLAG_MIPMAPS + Texture.FLAG_REPEAT)
 		var noise = OpenSimplexNoise.new()
-		noise.octaves = 2
-		noise.period = 8
+		noise.octaves = 1 + randi()%3
+		noise.period = rand_range(8.0, 16.0)
 		noise.seed = randi()
 		noise_tex.noise = noise
 		tile_mat.set_shader_param("noise", noise_tex)
