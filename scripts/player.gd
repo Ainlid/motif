@@ -12,6 +12,8 @@ var pivot
 var dir = Vector3.ZERO
 var velocity = Vector3.ZERO
 
+onready var anim = $pivot/camera/animplayer
+
 func _ready():
 	pivot = $pivot
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -43,6 +45,9 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			velocity.y = jump_speed
+		#headbob
+		if dir != Vector3.ZERO:
+			anim.play("headbob")
 	var target_vel = dir * walk_speed
 	#checking wall collision to prevent climbing steep slopes
 	if !is_on_wall():
