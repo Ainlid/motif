@@ -1,8 +1,3 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=2]
-
-[ext_resource path="res://resources/materials/tile.gdshader" type="Shader" id=1]
+[gd_resource type="SpatialMaterial" format=2]
 
 [resource]
-shader = ExtResource( 1 )
-shader_param/color1 = Color( 1, 1, 1, 1 )
-shader_param/color2 = Color( 1, 1, 1, 1 )
