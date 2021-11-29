@@ -14,6 +14,7 @@ __meta__ = {
 }
 
 [node name="popup" type="AcceptDialog" parent="."]
+visible = true
 margin_left = 334.0
 margin_top = -3.0
 margin_right = 677.0
@@ -27,7 +28,7 @@ __meta__ = {
 margin_left = 8.0
 margin_top = 8.0
 margin_right = 335.0
-margin_bottom = 196.0
+margin_bottom = 202.0
 custom_constants/hseparation = 50
 columns = 2
 __meta__ = {
@@ -62,50 +63,37 @@ text = "turn/select"
 margin_top = 36.0
 margin_right = 68.0
 margin_bottom = 50.0
-text = "space"
+text = "enter"
 
 [node name="action3" type="Label" parent="popup/grid"]
 margin_left = 118.0
 margin_top = 36.0
 margin_right = 224.0
 margin_bottom = 50.0
-text = "jump/OK"
+text = "pause/OK"
 
 [node name="key4" type="Label" parent="popup/grid"]
 margin_top = 54.0
 margin_right = 68.0
 margin_bottom = 68.0
-text = "enter"
+text = "escape"
 
 [node name="action4" type="Label" parent="popup/grid"]
 margin_left = 118.0
 margin_top = 54.0
 margin_right = 224.0
 margin_bottom = 68.0
-text = "pause/OK"
+text = "unlock cursor"
 
 [node name="key5" type="Label" parent="popup/grid"]
 margin_top = 72.0
 margin_right = 68.0
 margin_bottom = 86.0
-text = "escape"
+text = "f11"
 
 [node name="action5" type="Label" parent="popup/grid"]
 margin_left = 118.0
 margin_top = 72.0
 margin_right = 224.0
 margin_bottom = 86.0
-text = "unlock cursor"
-
-[node name="key6" type="Label" parent="popup/grid"]
-margin_top = 90.0
-margin_right = 68.0
-margin_bottom = 104.0
-text = "f11"
-
-[node name="action6" type="Label" parent="popup/grid"]
-margin_left = 118.0
-margin_top = 90.0
-margin_right = 224.0
-margin_bottom = 104.0
 text = "toggle fullscreen"

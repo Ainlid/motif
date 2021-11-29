@@ -3,7 +3,6 @@ extends KinematicBody
 export var playable = true
 export var gravity = -30.0
 export var walk_speed = 8.0
-export var jump_speed = 10.0
 export var turn_speed = 2.0
 export var fall_limit = -100.0
 
@@ -41,18 +40,12 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_right"):
 		dir += basis.x
 	dir = dir.normalized()
-	#jumping
-	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = jump_speed
-		#headbob
-		if dir != Vector3.ZERO:
-			anim.play("headbob")
+	#headbob
+	if dir != Vector3.ZERO:
+		anim.play("headbob")
 	var target_vel = dir * walk_speed
-	#checking wall collision to prevent climbing steep slopes
-	if !is_on_wall():
-		velocity.x = target_vel.x
-		velocity.z = target_vel.z
+	velocity.x = target_vel.x
+	velocity.z = target_vel.z
 	velocity.y += gravity * delta
 	if playable:
 		velocity = move_and_slide(velocity, Vector3.UP, true)
