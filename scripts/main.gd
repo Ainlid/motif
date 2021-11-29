@@ -16,7 +16,11 @@ var mat_portal = preload("res://resources/materials/portal.tres")
 
 const floor_textures = [preload("res://resources/textures/dirt_grass.png")]
 const wall_textures = [preload("res://resources/textures/tree_trunks.png")]
-const ceiling_textures = [preload("res://resources/textures/sky_day.png")]
+const ceiling_textures = [
+	preload("res://resources/textures/sky_day.png"),
+	preload("res://resources/textures/sky_sunset.png"),
+	preload("res://resources/textures/sky_night.png")
+	]
 const portal_textures = [
 	preload("res://resources/textures/door.png"),
 	preload("res://resources/textures/ladder.png")

@@ -28,13 +28,13 @@ func _fade_in():
 	get_tree().paused = false
 	tween.interpolate_property(rect, "color",
 	rect.color, Color(0.0, 0.0, 0.0, 0.0), duration,
-	Tween.TRANS_EXPO, Tween.EASE_IN)
+	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
 func _fade_out():
 	tween.interpolate_property(rect, "color",
 	rect.color, Color(0.0, 0.0, 0.0, 1.0), duration,
-	Tween.TRANS_EXPO, Tween.EASE_OUT)
+	Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	tween.start()
 
 func _reload_scene():
