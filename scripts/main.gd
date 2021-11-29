@@ -14,12 +14,30 @@ var mat_wall = preload("res://resources/materials/wall.tres")
 var mat_ceiling = preload("res://resources/materials/ceiling.tres")
 var mat_portal = preload("res://resources/materials/portal.tres")
 
-const floor_textures = [preload("res://resources/textures/dirt_grass.png")]
-const wall_textures = [preload("res://resources/textures/tree_trunks.png")]
+const floor_textures = [
+	preload("res://resources/textures/dirt_grass.png"),
+	preload("res://resources/textures/planks.png"),
+	preload("res://resources/textures/asphalt.png"),
+	preload("res://resources/textures/grass_flowers.png"),
+	preload("res://resources/textures/grass.png"),
+	preload("res://resources/textures/marble.png")
+	]
+const wall_textures = [
+	preload("res://resources/textures/tree_trunks.png"),
+	preload("res://resources/textures/house_brick.png"),
+	preload("res://resources/textures/house_modern.png"),
+	preload("res://resources/textures/skyscraper.png"),
+	preload("res://resources/textures/wall_log.png"),
+	preload("res://resources/textures/wall_stone.png"),
+	preload("res://resources/textures/wall_marble.png"),
+	preload("res://resources/textures/wall_brick.png")
+	]
 const ceiling_textures = [
 	preload("res://resources/textures/sky_day.png"),
 	preload("res://resources/textures/sky_sunset.png"),
-	preload("res://resources/textures/sky_night.png")
+	preload("res://resources/textures/sky_night.png"),
+	preload("res://resources/textures/planks.png"),
+	preload("res://resources/textures/marble.png")
 	]
 const portal_textures = [
 	preload("res://resources/textures/door.png"),
