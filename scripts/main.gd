@@ -12,10 +12,15 @@ var player = preload("res://nodes/player.tscn")
 var mat_floor = preload("res://resources/materials/floor.tres")
 var mat_wall = preload("res://resources/materials/wall.tres")
 var mat_ceiling = preload("res://resources/materials/ceiling.tres")
+var mat_portal = preload("res://resources/materials/portal.tres")
 
 const floor_textures = [preload("res://resources/textures/dirt_grass.png")]
 const wall_textures = [preload("res://resources/textures/tree_trunks.png")]
 const ceiling_textures = [preload("res://resources/textures/sky_day.png")]
+const portal_textures = [
+	preload("res://resources/textures/door.png"),
+	preload("res://resources/textures/ladder.png")
+	]
 
 var portal = preload("res://nodes/portal.tscn")
 
@@ -35,6 +40,7 @@ func _set_textures():
 	mat_floor.albedo_texture = floor_textures[randi()%floor_textures.size()]
 	mat_wall.albedo_texture = wall_textures[randi()%wall_textures.size()]
 	mat_ceiling.albedo_texture = ceiling_textures[randi()%ceiling_textures.size()]
+	mat_portal.albedo_texture = portal_textures[randi()%portal_textures.size()]
 
 func _set_up_env():
 	var env = worldenv.environment
