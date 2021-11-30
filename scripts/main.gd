@@ -3,7 +3,7 @@ extends Spatial
 var size_x = 20
 var size_z = 20
 var borders
-var steps_amount = 512
+var steps_amount = 100
 
 onready var gridmap = $gridmap
 
@@ -31,12 +31,19 @@ const wall_textures = [
 	preload("res://resources/textures/hedge.png"),
 	preload("res://resources/textures/fence_wood.png"),
 	preload("res://resources/textures/fence_metal.png"),
-	preload("res://resources/textures/wall_concrete.png")
+	preload("res://resources/textures/wall_concrete.png"),
+	preload("res://resources/textures/pipes.png"),
+	preload("res://resources/textures/container.png"),
+	preload("res://resources/textures/shop_shelf.png")
 	]
 const ceiling_textures = [
 	preload("res://resources/textures/sky_day.png"),
 	preload("res://resources/textures/sky_sunset.png"),
-	preload("res://resources/textures/sky_night.png")
+	preload("res://resources/textures/sky_night.png"),
+	preload("res://resources/textures/sky_cloudy.png"),
+	preload("res://resources/textures/ceiling_panel.png"),
+	preload("res://resources/textures/ceiling_wood.png"),
+	preload("res://resources/textures/water_surface.png")
 	]
 const portal_textures = [
 	preload("res://resources/textures/door.png"),
@@ -54,7 +61,7 @@ func _ready():
 	size_x = 10 + randi()%10+1
 	size_z = 10 + randi()%10+1
 	borders = Rect2(1, 1, size_x - 2, size_z - 2)
-	steps_amount = 200 + randi()%200+1
+	steps_amount = 100 + randi()%300+1
 	_generate_maze()
 
 func _set_textures():
