@@ -14,6 +14,7 @@ var mat_wall = preload("res://resources/materials/wall.tres")
 var mat_ceiling = preload("res://resources/materials/ceiling.tres")
 var mat_portal = preload("res://resources/materials/portal.tres")
 var mat_prop = preload("res://resources/materials/prop.tres")
+var mat_npc = preload("res://resources/materials/npc.tres")
 
 const floor_textures = [
 	preload("res://resources/textures/dirt_grass.png"),
@@ -51,14 +52,22 @@ const ceiling_textures = [
 	]
 const portal_textures = [
 	preload("res://resources/textures/door.png"),
-	preload("res://resources/textures/ladder.png")
+	preload("res://resources/textures/door_dark.png"),
+	preload("res://resources/textures/door_metal.png"),
+	preload("res://resources/textures/door_plastic.png"),
+	preload("res://resources/textures/door_old.png"),
+	preload("res://resources/textures/door_emergency.png")
 	]
 const prop_textures = [
 	preload("res://resources/textures/bush.png")
 	]
+const npc_textures = [
+	preload("res://resources/textures/man_casual.png")
+]
 
 var portal = preload("res://nodes/portal.tscn")
 var prop = preload("res://nodes/prop.tscn")
+var npc = preload("res://nodes/npc.tscn")
 
 onready var worldenv = $worldenv
 
@@ -78,6 +87,7 @@ func _set_textures():
 	mat_ceiling.albedo_texture = ceiling_textures[randi()%ceiling_textures.size()]
 	mat_portal.albedo_texture = portal_textures[randi()%portal_textures.size()]
 	mat_prop.albedo_texture = prop_textures[randi()%prop_textures.size()]
+	mat_npc.albedo_texture = npc_textures[randi()%npc_textures.size()]
 
 func _set_up_env():
 	var env = worldenv.environment
@@ -114,6 +124,11 @@ func _generate_maze():
 			new_portal.translation = world_pos + Vector3.DOWN * 4.0
 		if loc_id > 1 and loc_id < map.size():
 			if randf() < 0.25:
-				var new_prop = prop.instance()
-				add_child(new_prop)
-				new_prop.translation = world_pos + Vector3.DOWN * 4.0
+				if randf() > 0.1:
+					var new_prop = prop.instance()
+					add_child(new_prop)
+					new_prop.translation = world_pos + Vector3.DOWN * 4.0
+				else:
+					var new_npc = npc.instance()
+					add_child(new_npc)
+					new_npc.translation = world_pos + Vector3.DOWN * 4.0

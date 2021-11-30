@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/materials/npc.tres" type="Material" id=1]
+[ext_resource path="res://scripts/billboard_y.gd" type="Script" id=2]
+
+[sub_resource type="QuadMesh" id=1]
+
+[node name="npc" type="Spatial"]
+
+[node name="mesh" type="Spatial" parent="."]
+script = ExtResource( 2 )
+
+[node name="quad" type="MeshInstance" parent="mesh"]
+transform = Transform( -2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 1, 0 )
+mesh = SubResource( 1 )
+material/0 = ExtResource( 1 )
