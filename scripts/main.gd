@@ -13,13 +13,15 @@ var mat_floor = preload("res://resources/materials/floor.tres")
 var mat_wall = preload("res://resources/materials/wall.tres")
 var mat_ceiling = preload("res://resources/materials/ceiling.tres")
 var mat_portal = preload("res://resources/materials/portal.tres")
+var mat_prop = preload("res://resources/materials/prop.tres")
 
 const floor_textures = [
 	preload("res://resources/textures/dirt_grass.png"),
 	preload("res://resources/textures/planks.png"),
 	preload("res://resources/textures/asphalt.png"),
 	preload("res://resources/textures/grass_flowers.png"),
-	preload("res://resources/textures/grass.png")
+	preload("res://resources/textures/grass.png"),
+	preload("res://resources/textures/ceramic_tiles.png")
 	]
 const wall_textures = [
 	preload("res://resources/textures/tree_trunks.png"),
@@ -34,7 +36,8 @@ const wall_textures = [
 	preload("res://resources/textures/wall_concrete.png"),
 	preload("res://resources/textures/pipes.png"),
 	preload("res://resources/textures/container.png"),
-	preload("res://resources/textures/shop_shelf.png")
+	preload("res://resources/textures/shop_shelf.png"),
+	preload("res://resources/textures/wall_glass.png")
 	]
 const ceiling_textures = [
 	preload("res://resources/textures/sky_day.png"),
@@ -43,14 +46,19 @@ const ceiling_textures = [
 	preload("res://resources/textures/sky_cloudy.png"),
 	preload("res://resources/textures/ceiling_panel.png"),
 	preload("res://resources/textures/ceiling_wood.png"),
-	preload("res://resources/textures/water_surface.png")
+	preload("res://resources/textures/water_surface.png"),
+	preload("res://resources/textures/ceiling_glass.png")
 	]
 const portal_textures = [
 	preload("res://resources/textures/door.png"),
 	preload("res://resources/textures/ladder.png")
 	]
+const prop_textures = [
+	preload("res://resources/textures/bush.png")
+	]
 
 var portal = preload("res://nodes/portal.tscn")
+var prop = preload("res://nodes/prop.tscn")
 
 onready var worldenv = $worldenv
 
@@ -69,6 +77,7 @@ func _set_textures():
 	mat_wall.albedo_texture = wall_textures[randi()%wall_textures.size()]
 	mat_ceiling.albedo_texture = ceiling_textures[randi()%ceiling_textures.size()]
 	mat_portal.albedo_texture = portal_textures[randi()%portal_textures.size()]
+	mat_prop.albedo_texture = prop_textures[randi()%prop_textures.size()]
 
 func _set_up_env():
 	var env = worldenv.environment
@@ -91,8 +100,9 @@ func _generate_maze():
 	walker.queue_free()
 	var loc_id = 0
 	for location in map:
-		var world_pos = gridmap.map_to_world(location.x, 0, location.y)
 		loc_id += 1
+		var world_pos = gridmap.map_to_world(location.x, 0, location.y)
+		#erase a wall here
 		gridmap.set_cell_item(location.x, 0, location.y, -1)
 		if loc_id == 1:
 			var new_player = player.instance()
@@ -102,3 +112,8 @@ func _generate_maze():
 			var new_portal = portal.instance()
 			add_child(new_portal)
 			new_portal.translation = world_pos + Vector3.DOWN * 4.0
+		if loc_id > 1 and loc_id < map.size():
+			if randf() < 0.25:
+				var new_prop = prop.instance()
+				add_child(new_prop)
+				new_prop.translation = world_pos + Vector3.DOWN * 4.0

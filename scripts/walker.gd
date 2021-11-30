@@ -22,7 +22,9 @@ func _walk(steps):
 		if randf() <= 0.25 or steps_since_turn >= max_straight_steps:
 			_change_dir()
 		if _step():
-			step_history.append(position)
+			#prevent overlap
+			if !step_history.has(position):
+				step_history.append(position)
 		else:
 			_change_dir()
 	return step_history
