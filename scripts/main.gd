@@ -16,41 +16,24 @@ var mat_prop = preload("res://resources/materials/prop.tres")
 var mat_npc = preload("res://resources/materials/npc.tres")
 
 const floor_textures = [
-	preload("res://resources/textures/dirt_grass.png"),
-	preload("res://resources/textures/planks.png"),
-	preload("res://resources/textures/asphalt.png"),
-	preload("res://resources/textures/grass_flowers.png"),
-	preload("res://resources/textures/grass.png"),
-	preload("res://resources/textures/ceramic_tiles.png")
+	preload("res://resources/textures/floor/asphalt.png"),
+	preload("res://resources/textures/floor/dirt.png"),
+	preload("res://resources/textures/floor/grass.png")
 	]
 const wall_textures = [
-	preload("res://resources/textures/tree_trunks.png"),
-	preload("res://resources/textures/house_brick.png"),
-	preload("res://resources/textures/house_modern.png"),
-	preload("res://resources/textures/skyscraper.png"),
-	preload("res://resources/textures/wall_log.png"),
-	preload("res://resources/textures/wall_brick.png"),
-	preload("res://resources/textures/hedge.png"),
-	preload("res://resources/textures/fence_wood.png"),
-	preload("res://resources/textures/fence_metal.png"),
-	preload("res://resources/textures/wall_concrete.png"),
-	preload("res://resources/textures/pipes.png"),
-	preload("res://resources/textures/container.png"),
-	preload("res://resources/textures/shop_shelf.png"),
-	preload("res://resources/textures/wall_glass.png")
+	preload("res://resources/textures/wall/trees.png")
 	]
 const ceiling_textures = [
-	preload("res://resources/textures/sky_day.png"),
-	preload("res://resources/textures/sky_sunset.png"),
-	preload("res://resources/textures/sky_night.png"),
-	preload("res://resources/textures/sky_cloudy.png"),
-	preload("res://resources/textures/ceiling_panel.png"),
-	preload("res://resources/textures/ceiling_wood.png"),
-	preload("res://resources/textures/water_surface.png"),
-	preload("res://resources/textures/ceiling_glass.png")
+	preload("res://resources/textures/ceiling/sky_day.png"),
+	preload("res://resources/textures/ceiling/sky_night.png"),
+	preload("res://resources/textures/ceiling/sky_sunset.png"),
+	preload("res://resources/textures/ceiling/sky_cloudy.png"),
+	preload("res://resources/textures/ceiling/glass.png"),
+	preload("res://resources/textures/ceiling/panel.png"),
+	preload("res://resources/textures/ceiling/planks.png")
 	]
 const prop_textures = [
-	preload("res://resources/textures/bush.png")
+	preload("res://resources/textures/prop/bush.png")
 	]
 const npc_textures = [
 	preload("res://resources/textures/human.png")
