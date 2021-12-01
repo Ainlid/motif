@@ -12,7 +12,6 @@ var player = preload("res://nodes/player.tscn")
 var mat_floor = preload("res://resources/materials/floor.tres")
 var mat_wall = preload("res://resources/materials/wall.tres")
 var mat_ceiling = preload("res://resources/materials/ceiling.tres")
-var mat_portal = preload("res://resources/materials/portal.tres")
 var mat_prop = preload("res://resources/materials/prop.tres")
 var mat_npc = preload("res://resources/materials/npc.tres")
 
@@ -50,19 +49,11 @@ const ceiling_textures = [
 	preload("res://resources/textures/water_surface.png"),
 	preload("res://resources/textures/ceiling_glass.png")
 	]
-const portal_textures = [
-	preload("res://resources/textures/door.png"),
-	preload("res://resources/textures/door_dark.png"),
-	preload("res://resources/textures/door_metal.png"),
-	preload("res://resources/textures/door_plastic.png"),
-	preload("res://resources/textures/door_old.png"),
-	preload("res://resources/textures/door_emergency.png")
-	]
 const prop_textures = [
 	preload("res://resources/textures/bush.png")
 	]
 const npc_textures = [
-	preload("res://resources/textures/man_casual.png")
+	preload("res://resources/textures/human.png")
 ]
 
 var portal = preload("res://nodes/portal.tscn")
@@ -85,7 +76,6 @@ func _set_textures():
 	mat_floor.albedo_texture = floor_textures[randi()%floor_textures.size()]
 	mat_wall.albedo_texture = wall_textures[randi()%wall_textures.size()]
 	mat_ceiling.albedo_texture = ceiling_textures[randi()%ceiling_textures.size()]
-	mat_portal.albedo_texture = portal_textures[randi()%portal_textures.size()]
 	mat_prop.albedo_texture = prop_textures[randi()%prop_textures.size()]
 	mat_npc.albedo_texture = npc_textures[randi()%npc_textures.size()]
 
@@ -108,6 +98,10 @@ func _generate_maze():
 	var walker = Walker.new(Vector2(floor(size_x / 2), floor(size_z / 2)), borders)
 	var map = walker._walk(steps_amount)
 	walker.queue_free()
+	var npc_chance = 0.0
+	#chance to spawn NPCs at all
+	if randf() > 0.5:
+		npc_chance = rand_range(0.1, 0.5)
 	var loc_id = 0
 	for location in map:
 		loc_id += 1
@@ -124,7 +118,7 @@ func _generate_maze():
 			new_portal.translation = world_pos + Vector3.DOWN * 4.0
 		if loc_id > 1 and loc_id < map.size():
 			if randf() < 0.25:
-				if randf() > 0.1:
+				if randf() > npc_chance:
 					var new_prop = prop.instance()
 					add_child(new_prop)
 					new_prop.translation = world_pos + Vector3.DOWN * 4.0
