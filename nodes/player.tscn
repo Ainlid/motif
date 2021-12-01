@@ -69,4 +69,5 @@ anims/RESET = SubResource( 3 )
 anims/headbob = SubResource( 2 )
 
 [node name="footsteps" type="AudioStreamPlayer" parent="pivot/camera"]
+stream = ExtResource( 2 )
 volume_db = -6.0
