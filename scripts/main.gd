@@ -13,7 +13,6 @@ var mat_floor = preload("res://resources/materials/floor.tres")
 var mat_wall = preload("res://resources/materials/wall.tres")
 var mat_ceiling = preload("res://resources/materials/ceiling.tres")
 var mat_prop = preload("res://resources/materials/prop.tres")
-var mat_npc = preload("res://resources/materials/npc.tres")
 
 const floor_textures = [
 	preload("res://resources/textures/floor/asphalt.png"),
@@ -35,9 +34,6 @@ const ceiling_textures = [
 const prop_textures = [
 	preload("res://resources/textures/prop/bush.png")
 	]
-const npc_textures = [
-	preload("res://resources/textures/human.png")
-]
 
 var portal = preload("res://nodes/portal.tscn")
 var prop = preload("res://nodes/prop.tscn")
@@ -46,7 +42,6 @@ var npc = preload("res://nodes/npc.tscn")
 onready var worldenv = $worldenv
 
 func _ready():
-	randomize()
 	_set_textures()
 	_set_up_env()
 	size_x = 10 + randi()%10+1
@@ -60,7 +55,6 @@ func _set_textures():
 	mat_wall.albedo_texture = wall_textures[randi()%wall_textures.size()]
 	mat_ceiling.albedo_texture = ceiling_textures[randi()%ceiling_textures.size()]
 	mat_prop.albedo_texture = prop_textures[randi()%prop_textures.size()]
-	mat_npc.albedo_texture = npc_textures[randi()%npc_textures.size()]
 
 func _set_up_env():
 	var env = worldenv.environment

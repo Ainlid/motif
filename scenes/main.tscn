@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://resources/meshlib.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
+[ext_resource path="res://nodes/music_gen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://nodes/pause_menu.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Environment" id=1]
@@ -30,3 +31,5 @@ __meta__ = {
 }
 
 [node name="pause_menu" parent="." instance=ExtResource( 4 )]
+
+[node name="music_gen" parent="." instance=ExtResource( 3 )]
