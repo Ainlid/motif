@@ -3,8 +3,8 @@ extends KinematicBody
 export var playable = true
 export var gravity = -30.0
 export var walk_speed = 8.0
-export var turn_speed = 2.0
 export var fall_limit = -100.0
+export var mouse_sensitivity = 0.0015
 
 var pivot
 
@@ -18,16 +18,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta):
-	#turning
-	if Input.is_action_pressed("look_up"):
-		pivot.rotate_x(turn_speed * delta)
-	if Input.is_action_pressed("look_down"):
-		pivot.rotate_x(-turn_speed * delta)
-	pivot.rotation.x = clamp(pivot.rotation.x, -1.2, 1.2)
-	if Input.is_action_pressed("look_left"):
-		rotate_y(turn_speed * delta)
-	if Input.is_action_pressed("look_right"):
-		rotate_y(-turn_speed * delta)
 	#walking
 	dir = Vector3.ZERO
 	var basis = global_transform.basis
@@ -56,3 +46,9 @@ func _restart():
 	if playable:
 		playable = false
 		fader._reload_scene()
+
+func _unhandled_input(event):
+	if event is InputEventMouseMotion and playable:
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+		pivot.rotation.x = clamp(pivot.rotation.x, -1.2, 1.2)

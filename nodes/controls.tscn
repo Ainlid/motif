@@ -1,99 +1,110 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/controls.gd" type="Script" id=1]
+[ext_resource path="res://resources/themes/label_opaque.tres" type="StyleBox" id=2]
+[ext_resource path="res://resources/themes/theme0.tres" type="Theme" id=3]
+[ext_resource path="res://resources/fonts/regular_big1.tres" type="DynamicFont" id=4]
 
-[node name="controls" type="Button"]
-margin_left = 126.0
-margin_top = 523.0
-margin_right = 342.0
-margin_bottom = 577.0
-text = "controls"
+[node name="controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="popup" type="AcceptDialog" parent="."]
-visible = true
-margin_left = 334.0
-margin_top = -3.0
-margin_right = 677.0
-margin_bottom = 235.0
-window_title = "controls"
+[node name="panel" type="Panel" parent="."]
+margin_left = 772.0
+margin_top = 317.0
+margin_right = 1136.0
+margin_bottom = 621.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="grid" type="GridContainer" parent="popup"]
-margin_left = 8.0
-margin_top = 8.0
-margin_right = 335.0
-margin_bottom = 202.0
+[node name="controls_label" type="Label" parent="."]
+margin_left = 788.0
+margin_top = 329.929
+margin_right = 1115.0
+margin_bottom = 371.929
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "controls"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="grid" type="GridContainer" parent="."]
+margin_left = 788.0
+margin_top = 392.473
+margin_right = 1115.0
+margin_bottom = 586.473
 custom_constants/hseparation = 50
 columns = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="key1" type="Label" parent="popup/grid"]
-margin_right = 68.0
-margin_bottom = 14.0
+[node name="key1" type="Label" parent="grid"]
+margin_right = 80.0
+margin_bottom = 34.0
 text = "w/a/s/d"
 
-[node name="action1" type="Label" parent="popup/grid"]
-margin_left = 118.0
-margin_right = 224.0
-margin_bottom = 14.0
+[node name="action1" type="Label" parent="grid"]
+margin_left = 130.0
+margin_right = 312.0
+margin_bottom = 34.0
 text = "walk"
 
-[node name="key2" type="Label" parent="popup/grid"]
-margin_top = 18.0
-margin_right = 68.0
-margin_bottom = 32.0
-text = "arrow keys"
-
-[node name="action2" type="Label" parent="popup/grid"]
-margin_left = 118.0
-margin_top = 18.0
-margin_right = 224.0
-margin_bottom = 32.0
-text = "turn/select"
-
-[node name="key3" type="Label" parent="popup/grid"]
-margin_top = 36.0
-margin_right = 68.0
-margin_bottom = 50.0
-text = "enter"
-
-[node name="action3" type="Label" parent="popup/grid"]
-margin_left = 118.0
-margin_top = 36.0
-margin_right = 224.0
-margin_bottom = 50.0
-text = "pause/OK"
-
-[node name="key4" type="Label" parent="popup/grid"]
-margin_top = 54.0
-margin_right = 68.0
-margin_bottom = 68.0
+[node name="key2" type="Label" parent="grid"]
+margin_top = 38.0
+margin_right = 80.0
+margin_bottom = 72.0
 text = "escape"
 
-[node name="action4" type="Label" parent="popup/grid"]
-margin_left = 118.0
-margin_top = 54.0
-margin_right = 224.0
-margin_bottom = 68.0
-text = "unlock cursor"
+[node name="action2" type="Label" parent="grid"]
+margin_left = 130.0
+margin_top = 38.0
+margin_right = 312.0
+margin_bottom = 72.0
+text = "pause/unpause"
 
-[node name="key5" type="Label" parent="popup/grid"]
-margin_top = 72.0
-margin_right = 68.0
-margin_bottom = 86.0
+[node name="key3" type="Label" parent="grid"]
+margin_top = 76.0
+margin_right = 80.0
+margin_bottom = 110.0
 text = "f11"
 
-[node name="action5" type="Label" parent="popup/grid"]
-margin_left = 118.0
-margin_top = 72.0
-margin_right = 224.0
-margin_bottom = 86.0
+[node name="action3" type="Label" parent="grid"]
+margin_left = 130.0
+margin_top = 76.0
+margin_right = 312.0
+margin_bottom = 110.0
 text = "toggle fullscreen"
+
+[node name="key4" type="Label" parent="grid"]
+margin_top = 114.0
+margin_right = 80.0
+margin_bottom = 148.0
+text = "f12"
+
+[node name="action4" type="Label" parent="grid"]
+margin_left = 130.0
+margin_top = 114.0
+margin_right = 312.0
+margin_bottom = 148.0
+text = "screenshot"
+
+[node name="ok_button" type="Button" parent="."]
+margin_left = 899.444
+margin_top = 567.0
+margin_right = 996.444
+margin_bottom = 608.0
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="ok_button" to="." method="_ok_pressed"]

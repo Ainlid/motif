@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/pause_menu.gd" type="Script" id=1]
 [ext_resource path="res://resources/themes/theme0.tres" type="Theme" id=2]
 [ext_resource path="res://resources/fonts/regular_big1.tres" type="DynamicFont" id=3]
 [ext_resource path="res://resources/themes/label_opaque.tres" type="StyleBox" id=4]
 [ext_resource path="res://nodes/controls.tscn" type="PackedScene" id=5]
+[ext_resource path="res://nodes/settings.tscn" type="PackedScene" id=6]
 
 [node name="pause_menu" type="CanvasLayer"]
 pause_mode = 2
@@ -51,21 +52,43 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="controls" parent="menu" instance=ExtResource( 5 )]
+[node name="controls_button" type="Button" parent="menu"]
 margin_left = 849.0
-margin_top = 470.18
+margin_top = 467.473
 margin_right = 1065.0
-margin_bottom = 524.18
+margin_bottom = 517.473
+text = "controls"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="settings_button" type="Button" parent="menu"]
+margin_left = 849.0
+margin_top = 530.473
+margin_right = 1065.0
+margin_bottom = 580.473
+text = "settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="menu_button" type="Button" parent="menu"]
 margin_left = 849.0
-margin_top = 538.18
+margin_top = 596.18
 margin_right = 1065.0
-margin_bottom = 588.18
+margin_bottom = 646.18
 text = "menu"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="controls" parent="menu" instance=ExtResource( 5 )]
+visible = false
+
+[node name="settings" parent="menu" instance=ExtResource( 6 )]
+visible = false
+
 [connection signal="pressed" from="menu/resume_button" to="." method="_unpause_game"]
+[connection signal="pressed" from="menu/controls_button" to="menu/controls" method="_controls_pressed"]
+[connection signal="pressed" from="menu/settings_button" to="menu/settings" method="_settings_pressed"]
 [connection signal="pressed" from="menu/menu_button" to="." method="_main_menu"]
