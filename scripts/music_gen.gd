@@ -3,6 +3,8 @@ extends Node
 onready var melody = $melody
 onready var bass = $bass
 
+var volume = -4
+
 onready var timer = $timer
 var tempo = 120.0
 var speed_mod = 2.0
@@ -25,6 +27,8 @@ var seq_size = 8
 var curr_step = 0
 
 func _ready():
+	melody.volume_db = volume
+	bass.volume_db = volume
 	scale = _pick_scale()
 	transposition = randi()%12
 	sequence = _make_sequence()

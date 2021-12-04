@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://resources/meshlib.tres" type="MeshLibrary" id=1]
 [ext_resource path="res://scripts/main.gd" type="Script" id=2]
 [ext_resource path="res://nodes/music_gen.tscn" type="PackedScene" id=3]
 [ext_resource path="res://nodes/pause_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://nodes/filter.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -19,6 +20,8 @@ script = ExtResource( 2 )
 
 [node name="worldenv" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="filter" parent="." instance=ExtResource( 5 )]
 
 [node name="gridmap" type="GridMap" parent="."]
 mesh_library = ExtResource( 1 )

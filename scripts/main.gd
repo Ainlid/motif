@@ -61,7 +61,7 @@ func _set_up_env():
 	var bg_col = Color.from_hsv(randf(), rand_range(0.0, 0.4), rand_range(0.2, 0.8))
 	env.background_color = bg_col
 	env.fog_color = bg_col
-	env.ambient_light_color = Color.from_hsv(randf(), rand_range(0.0, 0.5), 1.0)
+	#env.ambient_light_color = Color.from_hsv(randf(), rand_range(0.0, 0.5), 1.0)
 
 func _generate_maze():
 	for n_x in size_x:
