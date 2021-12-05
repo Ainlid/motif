@@ -69,6 +69,7 @@ margin_left = 764.001
 margin_top = 485.791
 margin_right = 1115.0
 margin_bottom = 501.791
+step = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -88,6 +89,7 @@ margin_left = 764.001
 margin_top = 578.791
 margin_right = 1115.0
 margin_bottom = 594.791
+step = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
