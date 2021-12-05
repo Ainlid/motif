@@ -16,5 +16,5 @@ func _ok_pressed():
 	AudioServer.set_bus_volume_db(2, linear2db(bgm_slider.value / 100.0))
 	save_manager.config_data["volume"]["sfx"] = sfx_slider.value
 	AudioServer.set_bus_volume_db(1, linear2db(sfx_slider.value / 100.0))
-	save_manager._save_data()
+	save_manager._save_config()
 	hide()

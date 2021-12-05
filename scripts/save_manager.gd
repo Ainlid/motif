@@ -11,15 +11,15 @@ var config_data = {
 }
 
 func _ready():
-	_load_data()
+	_load_config()
 
-func _save_data():
+func _save_config():
 	for section in config_data.keys():
 		for key in config_data[section].keys():
 			config_file.set_value(section, key, config_data[section][key])
 	config_file.save(config_path)
 
-func _load_data():
+func _load_config():
 	var error = config_file.load(config_path)
 	if error == OK:
 		for section in config_data.keys():

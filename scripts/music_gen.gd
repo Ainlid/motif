@@ -55,12 +55,12 @@ func _make_chunk():
 	var chunk = []
 	for n in chunk_size:
 		var m_active
-		if n == 0 or n%4 == 0:
+		if n%4 == 0:
 			m_active = true
 		else:
 			m_active = randf() > 0.5
 		var m_pitch = _note_to_pitch(scale[randi()%scale.size()] + transposition)
-		var b_active = n == 0 or n%4 == 0
+		var b_active = n%4 == 0
 		var b_pitch = _note_to_pitch(scale[randi()%scale.size()] + transposition - 12.0 * 2)
 		var step = {
 			"m_active" : m_active,
