@@ -14,14 +14,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="menu" type="Control" parent="."]
+[node name="bg" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="panel" type="Panel" parent="menu"]
+[node name="panel" type="Panel" parent="."]
 margin_left = 743.0
 margin_top = 315.0
 margin_right = 1136.0
@@ -30,7 +31,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="settings_label" type="Label" parent="menu"]
+[node name="settings_label" type="Label" parent="."]
 margin_left = 764.001
 margin_top = 335.394
 margin_right = 1115.0
@@ -43,7 +44,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="volume_label" type="Label" parent="menu"]
+[node name="volume_label" type="Label" parent="."]
 margin_left = 764.001
 margin_top = 394.791
 margin_right = 1115.0
@@ -54,7 +55,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgm_label" type="Label" parent="menu"]
+[node name="bgm_label" type="Label" parent="."]
 margin_left = 764.001
 margin_top = 434.791
 margin_right = 1115.0
@@ -64,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgm_slider" type="HSlider" parent="menu"]
+[node name="bgm_slider" type="HSlider" parent="."]
 margin_left = 764.001
 margin_top = 485.791
 margin_right = 1115.0
@@ -74,7 +75,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sfx_label" type="Label" parent="menu"]
+[node name="sfx_label" type="Label" parent="."]
 margin_left = 764.001
 margin_top = 520.791
 margin_right = 1115.0
@@ -84,7 +85,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sfx_slider" type="HSlider" parent="menu"]
+[node name="sfx_slider" type="HSlider" parent="."]
 margin_left = 764.001
 margin_top = 578.791
 margin_right = 1115.0
@@ -94,7 +95,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ok_button" type="Button" parent="menu"]
+[node name="ok_button" type="Button" parent="."]
 margin_left = 886.0
 margin_top = 631.929
 margin_right = 986.0
@@ -104,4 +105,4 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="menu/ok_button" to="." method="_ok_pressed"]
+[connection signal="pressed" from="ok_button" to="." method="_ok_pressed"]

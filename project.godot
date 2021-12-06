@@ -30,6 +30,7 @@ fader="*res://nodes/fader.tscn"
 fullscreen="*res://nodes/fullscreen.tscn"
 screencap="*res://nodes/screencap.tscn"
 save_manager="*res://nodes/save_manager.tscn"
+global_rng="*res://nodes/global_rng.tscn"
 
 [display]
 

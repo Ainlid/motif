@@ -1,0 +1,109 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scripts/diary_item.gd" type="Script" id=1]
+[ext_resource path="res://resources/themes/theme0.tres" type="Theme" id=2]
+[ext_resource path="res://resources/themes/panel_outline.tres" type="StyleBox" id=3]
+
+[node name="diary_item" type="PanelContainer"]
+margin_right = 700.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 700, 170 )
+theme = ExtResource( 2 )
+custom_styles/panel = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="content" type="Control" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 698.0
+margin_bottom = 168.0
+
+[node name="title_prompt" type="LineEdit" parent="content"]
+margin_left = 10.0
+margin_top = 13.0
+margin_right = 485.0
+margin_bottom = 51.0
+text = "dream title"
+max_length = 30
+editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="seed_prompt" type="LineEdit" parent="content"]
+margin_left = 10.0
+margin_top = 63.0
+margin_right = 485.0
+margin_bottom = 101.0
+text = "seed"
+max_length = 30
+editable = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="copy_button" type="Button" parent="content"]
+margin_left = 10.0
+margin_top = 114.0
+margin_right = 485.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 100, 0 )
+text = "copy seed to clipboard"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="edit_name_button" type="Button" parent="content"]
+margin_left = 509.0
+margin_top = 13.0
+margin_right = 680.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 100, 0 )
+toggle_mode = true
+text = "edit name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="edit_seed_button" type="Button" parent="content"]
+margin_left = 509.0
+margin_top = 63.0
+margin_right = 680.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 100, 0 )
+toggle_mode = true
+text = "edit seed"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="delete_button" type="Button" parent="content"]
+margin_left = 509.0
+margin_top = 113.594
+margin_right = 680.0
+margin_bottom = 151.594
+rect_min_size = Vector2( 100, 0 )
+text = "delete"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="delete_dialog" type="ConfirmationDialog" parent="content"]
+margin_left = 656.195
+margin_top = 13.0
+margin_right = 885.195
+margin_bottom = 105.0
+window_title = "confirm"
+dialog_text = "delete this entry?"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="content/copy_button" to="." method="_copy_seed"]
+[connection signal="toggled" from="content/edit_name_button" to="." method="_edit_name_toggled"]
+[connection signal="toggled" from="content/edit_seed_button" to="." method="_edit_seed_toggled"]
+[connection signal="pressed" from="content/delete_button" to="." method="_delete_pressed"]
+[connection signal="confirmed" from="content/delete_dialog" to="." method="_delete_confirmed"]

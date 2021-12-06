@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://nodes/dream_diary.tscn" type="PackedScene" id=1]
+[ext_resource path="res://resources/themes/theme0.tres" type="Theme" id=2]
+[ext_resource path="res://scripts/save_menu.gd" type="Script" id=3]
+[ext_resource path="res://resources/themes/label_opaque.tres" type="StyleBox" id=4]
+
+[node name="save_menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.501961 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dream_diary" parent="." instance=ExtResource( 1 )]
+
+[node name="panel" type="Panel" parent="."]
+margin_left = 1331.0
+margin_top = 349.0
+margin_right = 1844.0
+margin_bottom = 648.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_prompt" type="LineEdit" parent="."]
+margin_left = 1349.0
+margin_top = 370.0
+margin_right = 1822.0
+margin_bottom = 416.0
+text = "type dream title"
+max_length = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="seed_label" type="Label" parent="."]
+margin_left = 1349.0
+margin_top = 441.0
+margin_right = 1822.0
+margin_bottom = 485.0
+custom_styles/normal = ExtResource( 4 )
+text = "current seed:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="add_button" type="Button" parent="."]
+margin_left = 1349.0
+margin_top = 510.37
+margin_right = 1822.0
+margin_bottom = 556.37
+text = "add to diary"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="back_button" type="Button" parent="."]
+margin_left = 1349.0
+margin_top = 581.127
+margin_right = 1822.0
+margin_bottom = 625.127
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="add_button" to="." method="_add_pressed"]
+[connection signal="pressed" from="back_button" to="." method="_back_pressed"]

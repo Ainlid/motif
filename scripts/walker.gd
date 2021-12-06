@@ -15,11 +15,11 @@ func _init(start_position, new_borders):
 	position = start_position
 	step_history.append(position)
 	borders = new_borders
-	max_straight_steps = randi()%8+1
+	max_straight_steps = global_rng.rng.randi()%8+1
 
 func _walk(steps):
 	for step in steps:
-		if randf() <= 0.25 or steps_since_turn >= max_straight_steps:
+		if global_rng.rng.randf() <= 0.25 or steps_since_turn >= max_straight_steps:
 			_change_dir()
 		if _step():
 			#prevent overlap
@@ -42,7 +42,7 @@ func _change_dir():
 	steps_since_turn = 0
 	var dirs = directions.duplicate()
 	dirs.erase(direction)
-	dirs.shuffle()
+	dirs = global_rng._shuffle_array(dirs)
 	direction = dirs.pop_front()
 	while not borders.has_point(position + direction):
 		direction = dirs.pop_front()

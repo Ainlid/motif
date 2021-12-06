@@ -45,7 +45,7 @@ func _physics_process(delta):
 func _restart():
 	if playable:
 		playable = false
-		fader._reload_scene()
+		fader._next_dream()
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and playable:

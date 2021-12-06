@@ -38,9 +38,12 @@ func _fade_out():
 	tween.start()
 
 func _reload_scene():
-	path = get_tree().get_current_scene().get_filename()
-	_fade_out()
-	timer.start()
+	var current_path = get_tree().get_current_scene().get_filename()
+	_fade_start(current_path)
+
+func _next_dream():
+	global_rng._randomize_rng()
+	_fade_start(dream_path)
 
 func _change_scene():
 	get_tree().change_scene(path)

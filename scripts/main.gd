@@ -44,21 +44,21 @@ onready var worldenv = $worldenv
 func _ready():
 	_set_textures()
 	_set_up_env()
-	size_x = 10 + randi()%10+1
-	size_z = 10 + randi()%10+1
+	size_x = 10 + global_rng.rng.randi()%10+1
+	size_z = 10 + global_rng.rng.randi()%10+1
 	borders = Rect2(1, 1, size_x - 2, size_z - 2)
-	steps_amount = 100 + randi()%300+1
+	steps_amount = 100 + global_rng.rng.randi()%300+1
 	_generate_maze()
 
 func _set_textures():
-	mat_floor.albedo_texture = floor_textures[randi()%floor_textures.size()]
-	mat_wall.albedo_texture = wall_textures[randi()%wall_textures.size()]
-	mat_ceiling.albedo_texture = ceiling_textures[randi()%ceiling_textures.size()]
-	mat_prop.albedo_texture = prop_textures[randi()%prop_textures.size()]
+	mat_floor.albedo_texture = floor_textures[global_rng.rng.randi()%floor_textures.size()]
+	mat_wall.albedo_texture = wall_textures[global_rng.rng.randi()%wall_textures.size()]
+	mat_ceiling.albedo_texture = ceiling_textures[global_rng.rng.randi()%ceiling_textures.size()]
+	mat_prop.albedo_texture = prop_textures[global_rng.rng.randi()%prop_textures.size()]
 
 func _set_up_env():
 	var env = worldenv.environment
-	var bg_col = Color.from_hsv(randf(), rand_range(0.0, 0.4), rand_range(0.2, 0.8))
+	var bg_col = Color.from_hsv(global_rng.rng.randf(), global_rng.rng.randf_range(0.0, 0.4), global_rng.rng.randf_range(0.2, 0.8))
 	env.background_color = bg_col
 	env.fog_color = bg_col
 	#env.ambient_light_color = Color.from_hsv(randf(), rand_range(0.0, 0.5), 1.0)
@@ -77,8 +77,8 @@ func _generate_maze():
 	walker.queue_free()
 	var npc_chance = 0.0
 	#chance to spawn NPCs at all
-	if randf() > 0.5:
-		npc_chance = rand_range(0.1, 0.5)
+	if global_rng.rng.randf() > 0.5:
+		npc_chance = global_rng.rng.randf_range(0.1, 0.5)
 	var loc_id = 0
 	for location in map:
 		loc_id += 1
@@ -94,8 +94,8 @@ func _generate_maze():
 			add_child(new_portal)
 			new_portal.translation = world_pos + Vector3.DOWN * 4.0
 		if loc_id > 1 and loc_id < map.size():
-			if randf() < 0.25:
-				if randf() > npc_chance:
+			if global_rng.rng.randf() < 0.25:
+				if global_rng.rng.randf() > npc_chance:
 					var new_prop = prop.instance()
 					add_child(new_prop)
 					new_prop.translation = world_pos + Vector3.DOWN * 4.0

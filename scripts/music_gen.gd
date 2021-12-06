@@ -30,14 +30,14 @@ func _ready():
 	melody.volume_db = volume
 	bass.volume_db = volume
 	scale = _pick_scale()
-	transposition = randi()%12
+	transposition = global_rng.rng.randi()%12
 	sequence = _make_sequence()
-	tempo = rand_range(100.0, 140.0) * speed_mod
+	tempo = global_rng.rng.randf_range(100.0, 140.0) * speed_mod
 	timer.wait_time = 60.0/tempo
 	timer.start()
 
 func _pick_scale():
-	if randf() > 0.5:
+	if global_rng.rng.randf() > 0.5:
 		return major_scale
 	else:
 		return minor_scale
@@ -47,7 +47,7 @@ func _make_sequence():
 	for n in chunk_amount:
 		chunks.append(_make_chunk())
 	for n in seq_size:
-		var id = randi()%chunk_amount
+		var id = global_rng.rng.randi()%chunk_amount
 		seq += chunks[id]
 	return seq
 
@@ -58,10 +58,10 @@ func _make_chunk():
 		if n%4 == 0:
 			m_active = true
 		else:
-			m_active = randf() > 0.5
-		var m_pitch = _note_to_pitch(scale[randi()%scale.size()] + transposition)
+			m_active = global_rng.rng.randf() > 0.5
+		var m_pitch = _note_to_pitch(scale[global_rng.rng.randi()%scale.size()] + transposition)
 		var b_active = n%4 == 0
-		var b_pitch = _note_to_pitch(scale[randi()%scale.size()] + transposition - 12.0 * 2)
+		var b_pitch = _note_to_pitch(scale[global_rng.rng.randi()%scale.size()] + transposition - 12.0 * 2)
 		var step = {
 			"m_active" : m_active,
 			"m_pitch" : m_pitch,

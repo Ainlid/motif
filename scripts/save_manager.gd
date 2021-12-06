@@ -10,8 +10,15 @@ var config_data = {
 	}
 }
 
+const data_path = "user://mazedreams.dat"
+
+var game_data = {
+	"dreams" : {}
+}
+
 func _ready():
 	_load_config()
+	_load_data()
 
 func _save_config():
 	for section in config_data.keys():
@@ -26,3 +33,18 @@ func _load_config():
 			for key in config_data[section].keys():
 				var val = config_file.get_value(section,key)
 				config_data[section][key] = val
+
+func _save_data():
+	var file = File.new()
+	var error = file.open(data_path, File.WRITE)
+	if error == OK:
+		file.store_var(game_data)
+		file.close()
+
+func _load_data():
+	var file = File.new()
+	if file.file_exists(data_path):
+		var error = file.open(data_path, File.READ)
+		if error == OK:
+			game_data = file.get_var()
+			file.close()
