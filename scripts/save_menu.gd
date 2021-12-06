@@ -10,6 +10,7 @@ func _ready():
 	seed_label.text = global_rng.rng_seed
 
 func _show_menu():
+	diary._reset_list()
 	show()
 
 func _add_pressed():

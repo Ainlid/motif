@@ -1,8 +1,10 @@
 extends Control
 
+onready var diary = $dream_diary
 onready var seed_prompt = $seed_prompt
 
 func _show_menu():
+	diary._reset_list()
 	show()
 
 func _back_pressed():

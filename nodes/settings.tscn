@@ -23,19 +23,19 @@ __meta__ = {
 }
 
 [node name="panel" type="Panel" parent="."]
-margin_left = 743.0
-margin_top = 315.0
-margin_right = 1136.0
-margin_bottom = 699.0
+margin_left = 735.0
+margin_top = 201.0
+margin_right = 1147.0
+margin_bottom = 776.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="settings_label" type="Label" parent="."]
-margin_left = 764.001
-margin_top = 335.394
-margin_right = 1115.0
-margin_bottom = 377.394
+margin_left = 761.172
+margin_top = 218.686
+margin_right = 1112.17
+margin_bottom = 260.686
 custom_fonts/font = ExtResource( 3 )
 custom_styles/normal = ExtResource( 2 )
 text = "settings"
@@ -44,65 +44,180 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="volume_label" type="Label" parent="."]
-margin_left = 764.001
-margin_top = 394.791
-margin_right = 1115.0
-margin_bottom = 428.791
+[node name="ok_button" type="Button" parent="."]
+margin_left = 892.0
+margin_top = 708.929
+margin_right = 992.0
+margin_bottom = 758.929
+text = "OK"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tab_box" type="TabContainer" parent="."]
+margin_left = 753.0
+margin_top = 275.0
+margin_right = 1127.0
+margin_bottom = 691.0
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="audio" type="Control" parent="tab_box"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 38.0
+margin_right = -2.0
+margin_bottom = -2.0
+
+[node name="volume_label" type="Label" parent="tab_box/audio"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 354.0
+margin_bottom = 44.0
 text = "volume"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgm_label" type="Label" parent="."]
-margin_left = 764.001
-margin_top = 434.791
-margin_right = 1115.0
-margin_bottom = 468.791
+[node name="bgm_label" type="Label" parent="tab_box/audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 44.0
+margin_right = -261.0
+margin_bottom = -276.0
 text = "music:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bgm_slider" type="HSlider" parent="."]
-margin_left = 764.001
-margin_top = 485.791
-margin_right = 1115.0
-margin_bottom = 501.791
+[node name="bgm_slider" type="HSlider" parent="tab_box/audio"]
+margin_left = 20.0
+margin_top = 96.0
+margin_right = 354.0
+margin_bottom = 112.0
 step = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sfx_label" type="Label" parent="."]
-margin_left = 764.001
-margin_top = 520.791
-margin_right = 1115.0
-margin_bottom = 554.791
+[node name="sfx_label" type="Label" parent="tab_box/audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 130.0
+margin_right = -156.0
+margin_bottom = -187.0
 text = "sound effects:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="sfx_slider" type="HSlider" parent="."]
-margin_left = 764.001
-margin_top = 578.791
-margin_right = 1115.0
-margin_bottom = 594.791
+[node name="sfx_slider" type="HSlider" parent="tab_box/audio"]
+margin_left = 20.0
+margin_top = 188.0
+margin_right = 354.0
+margin_bottom = 204.0
 step = 10.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ok_button" type="Button" parent="."]
-margin_left = 886.0
-margin_top = 631.929
-margin_right = 986.0
-margin_bottom = 681.929
-text = "OK"
+[node name="game" type="Control" parent="tab_box"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 38.0
+margin_right = -2.0
+margin_bottom = -2.0
+
+[node name="mouse_sens_label" type="Label" parent="tab_box/game"]
+margin_left = 10.0
+margin_top = 10.394
+margin_right = 360.999
+margin_bottom = 44.394
+text = "mouse sensitivity:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mouse_sens_slider" type="HSlider" parent="tab_box/game"]
+margin_left = 10.0
+margin_top = 65.8793
+margin_right = 360.999
+margin_bottom = 81.8793
+min_value = 10.0
+max_value = 20.0
+value = 15.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="data" type="Control" parent="tab_box"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 38.0
+margin_right = -2.0
+margin_bottom = -2.0
+
+[node name="reset_config_button" type="Button" parent="tab_box/data"]
+margin_left = 16.0
+margin_top = 26.394
+margin_right = 350.0
+margin_bottom = 88.394
+text = "reset settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reset_data_button" type="Button" parent="tab_box/data"]
+margin_left = 16.0
+margin_top = 107.0
+margin_right = 350.0
+margin_bottom = 169.0
+text = "reset game data"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="reset_config_dialog" type="ConfirmationDialog" parent="tab_box/data"]
+margin_left = 421.436
+margin_top = 26.394
+margin_right = 650.436
+margin_bottom = 118.394
+window_title = "confirm"
+dialog_text = "reset settings?"
+
+[node name="reset_data_dialog" type="ConfirmationDialog" parent="tab_box/data"]
+margin_left = 429.436
+margin_top = 132.0
+margin_right = 658.436
+margin_bottom = 224.0
+window_title = "confirm"
+dialog_text = "reset game data?"
+
+[node name="warning" type="Label" parent="tab_box/data"]
+margin_left = 16.0
+margin_top = 280.0
+margin_right = 350.0
+margin_bottom = 352.0
+custom_colors/font_color = Color( 1, 0.501961, 0.25098, 1 )
+text = "be careful!
+reset cannot be undone"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [connection signal="pressed" from="ok_button" to="." method="_ok_pressed"]
+[connection signal="pressed" from="tab_box/data/reset_config_button" to="." method="_reset_config_pressed"]
+[connection signal="pressed" from="tab_box/data/reset_data_button" to="." method="_reset_data_pressed"]
+[connection signal="confirmed" from="tab_box/data/reset_config_dialog" to="." method="_reset_config_confirmed"]
+[connection signal="confirmed" from="tab_box/data/reset_data_dialog" to="." method="_reset_data_confirmed"]

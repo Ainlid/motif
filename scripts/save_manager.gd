@@ -3,18 +3,25 @@ extends Node
 const config_path = "user://mazedreams.cfg"
 var config_file = ConfigFile.new()
 
-var config_data = {
+var default_config = {
 	"volume" : {
 		"bgm" : 100.0,
 		"sfx" : 100.0
+	},
+	"game" : {
+		"mouse_sens" : 15.0
 	}
 }
 
+var config_data = default_config
+
 const data_path = "user://mazedreams.dat"
 
-var game_data = {
+var default_data = {
 	"dreams" : {}
 }
+
+var game_data = default_data
 
 func _ready():
 	_load_config()
@@ -48,3 +55,11 @@ func _load_data():
 		if error == OK:
 			game_data = file.get_var()
 			file.close()
+
+func _reset_config():
+	config_data = default_config
+	_save_config()
+
+func _reset_data():
+	game_data = default_data
+	_save_data()

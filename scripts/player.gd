@@ -4,7 +4,6 @@ export var playable = true
 export var gravity = -30.0
 export var walk_speed = 8.0
 export var fall_limit = -100.0
-export var mouse_sensitivity = 0.0015
 
 var pivot
 
@@ -49,6 +48,7 @@ func _restart():
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and playable:
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		pivot.rotate_x(-event.relative.y * mouse_sensitivity)
+		var mouse_sens = save_manager.config_data["game"]["mouse_sens"] / 10000.0
+		rotate_y(-event.relative.x * mouse_sens)
+		pivot.rotate_x(-event.relative.y * mouse_sens)
 		pivot.rotation.x = clamp(pivot.rotation.x, -1.2, 1.2)

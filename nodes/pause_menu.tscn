@@ -102,8 +102,17 @@ visible = false
 [node name="save_menu" parent="menu" instance=ExtResource( 7 )]
 visible = false
 
+[node name="menu_dialog" type="ConfirmationDialog" parent="menu"]
+margin_left = 1184.44
+margin_top = 347.394
+margin_right = 1413.44
+margin_bottom = 439.394
+window_title = "confirm"
+dialog_text = "wake up?"
+
 [connection signal="pressed" from="menu/resume_button" to="." method="_unpause_game"]
 [connection signal="pressed" from="menu/save_button" to="menu/save_menu" method="_show_menu"]
 [connection signal="pressed" from="menu/controls_button" to="menu/controls" method="_show_menu"]
 [connection signal="pressed" from="menu/settings_button" to="menu/settings" method="_show_menu"]
-[connection signal="pressed" from="menu/menu_button" to="." method="_main_menu"]
+[connection signal="pressed" from="menu/menu_button" to="." method="_menu_pressed"]
+[connection signal="confirmed" from="menu/menu_dialog" to="." method="_menu_confirmed"]

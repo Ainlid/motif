@@ -1,6 +1,7 @@
 extends Node
 
 onready var menu = $menu
+onready var menu_dialog = $menu/menu_dialog
 
 func _ready():
 	_unpause_game()
@@ -19,7 +20,10 @@ func _reload():
 	_unpause_game()
 	fader._reload_scene()
 
-func _main_menu():
+func _menu_pressed():
+	menu_dialog.popup_centered()
+
+func _menu_confirmed():
 	fader._fade_start(fader.menu_path)
 
 func _input(event):
