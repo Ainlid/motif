@@ -35,6 +35,16 @@ const prop_textures = [
 	preload("res://resources/textures/prop/bush.png")
 	]
 
+const dots_icon = preload("res://resources/textures/icons/dots.png")
+
+const icons = [
+	preload("res://resources/textures/icons/smiling.png"),
+	preload("res://resources/textures/icons/frowning.png"),
+	preload("res://resources/textures/icons/neutral.png")
+]
+var icons_max = 8
+var icons_picked = []
+
 var portal = preload("res://nodes/portal.tscn")
 var prop = preload("res://nodes/prop.tscn")
 var npc = preload("res://nodes/npc.tscn")
@@ -44,6 +54,7 @@ onready var worldenv = $worldenv
 func _ready():
 	_set_textures()
 	_set_up_env()
+	_pick_icons()
 	size_x = 10 + global_rng.rng.randi()%10+1
 	size_z = 10 + global_rng.rng.randi()%10+1
 	borders = Rect2(1, 1, size_x - 2, size_z - 2)
@@ -62,6 +73,11 @@ func _set_up_env():
 	env.background_color = bg_col
 	env.fog_color = bg_col
 	#env.ambient_light_color = Color.from_hsv(randf(), rand_range(0.0, 0.5), 1.0)
+
+func _pick_icons():
+	for n in icons_max:
+		var id = global_rng.rng.randi()%icons.size()
+		icons_picked.append(icons[id])
 
 func _generate_maze():
 	for n_x in size_x:
@@ -103,3 +119,9 @@ func _generate_maze():
 					var new_npc = npc.instance()
 					add_child(new_npc)
 					new_npc.translation = world_pos + Vector3.DOWN * 4.0
+					#chance to say something
+					if global_rng.rng.randf() > 0.5:
+						var icon_id = global_rng.rng.randi()%icons_max
+						new_npc._set_icon(icons_picked[icon_id])
+					else:
+						new_npc._set_icon(dots_icon)

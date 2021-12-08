@@ -8,6 +8,9 @@ var tween_time = 0.5
 func _ready():
 	icon.scale = Vector3.ZERO
 
+func _set_icon(texture):
+	icon.texture = texture
+
 func _body_entered(body):
 	if body.is_in_group("player"):
 		_show_icon()
