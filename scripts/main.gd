@@ -15,31 +15,32 @@ var mat_ceiling = preload("res://resources/materials/ceiling.tres")
 var mat_prop = preload("res://resources/materials/prop.tres")
 
 const floor_textures = [
-	preload("res://resources/textures/floor/asphalt.png"),
 	preload("res://resources/textures/floor/dirt.png"),
 	preload("res://resources/textures/floor/grass.png")
 	]
 const wall_textures = [
-	preload("res://resources/textures/wall/trees.png")
+	preload("res://resources/textures/wall/trees.png"),
+	preload("res://resources/textures/wall/trees_blue.png"),
+	preload("res://resources/textures/wall/trees_green.png")
 	]
 const ceiling_textures = [
-	preload("res://resources/textures/ceiling/sky_day.png"),
-	preload("res://resources/textures/ceiling/sky_night.png"),
-	preload("res://resources/textures/ceiling/sky_sunset.png"),
-	preload("res://resources/textures/ceiling/sky_cloudy.png"),
-	preload("res://resources/textures/ceiling/glass.png"),
-	preload("res://resources/textures/ceiling/panel.png"),
-	preload("res://resources/textures/ceiling/planks.png")
+	preload("res://resources/textures/ceiling/sky_blue.png"),
+	preload("res://resources/textures/ceiling/sky_orange.png"),
+	preload("res://resources/textures/ceiling/sky_gray.png"),
+	preload("res://resources/textures/ceiling/sky_pink.png"),
+	preload("res://resources/textures/ceiling/sky_green.png")
 	]
 const prop_textures = [
-	preload("res://resources/textures/prop/bush.png")
+	preload("res://resources/textures/prop/bush.png"),
+	preload("res://resources/textures/prop/bush_blue.png"),
+	preload("res://resources/textures/prop/bush_red.png")
 	]
 
 const dots_icon = preload("res://resources/textures/icons/dots.png")
 
 const icons = [
-	preload("res://resources/textures/icons/smiling.png"),
-	preload("res://resources/textures/icons/frowning.png"),
+	preload("res://resources/textures/icons/smile.png"),
+	preload("res://resources/textures/icons/frown.png"),
 	preload("res://resources/textures/icons/neutral.png")
 ]
 var icons_max = 8

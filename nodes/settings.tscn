@@ -17,7 +17,7 @@ __meta__ = {
 [node name="bg" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 0.501961 )
+color = Color( 0.501961, 0.501961, 0.501961, 0.25098 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -208,7 +208,6 @@ margin_left = 16.0
 margin_top = 280.0
 margin_right = 350.0
 margin_bottom = 352.0
-custom_colors/font_color = Color( 1, 0.501961, 0.25098, 1 )
 text = "be careful!
 reset cannot be undone"
 align = 1
