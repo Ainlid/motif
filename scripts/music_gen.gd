@@ -61,7 +61,7 @@ func _make_chunk():
 			m_active = global_rng.rng.randf() > 0.5
 		var m_pitch = _note_to_pitch(scale[global_rng.rng.randi()%scale.size()] + transposition)
 		var b_active = n%4 == 0
-		var b_pitch = _note_to_pitch(scale[global_rng.rng.randi()%scale.size()] + transposition - 12.0 * 2)
+		var b_pitch = _note_to_pitch(scale[global_rng.rng.randi()%scale.size()] + transposition - 12.0)
 		var step = {
 			"m_active" : m_active,
 			"m_pitch" : m_pitch,

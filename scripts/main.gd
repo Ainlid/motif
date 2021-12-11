@@ -21,14 +21,19 @@ const floor_textures = [
 const wall_textures = [
 	preload("res://resources/textures/wall/trees.png"),
 	preload("res://resources/textures/wall/trees_blue.png"),
-	preload("res://resources/textures/wall/trees_green.png")
+	preload("res://resources/textures/wall/trees_green.png"),
+	preload("res://resources/textures/wall/house.png"),
+	preload("res://resources/textures/wall/house_red.png"),
+	preload("res://resources/textures/wall/house_glow.png")
 	]
 const ceiling_textures = [
 	preload("res://resources/textures/ceiling/sky_blue.png"),
 	preload("res://resources/textures/ceiling/sky_orange.png"),
 	preload("res://resources/textures/ceiling/sky_gray.png"),
 	preload("res://resources/textures/ceiling/sky_pink.png"),
-	preload("res://resources/textures/ceiling/sky_green.png")
+	preload("res://resources/textures/ceiling/sky_green.png"),
+	preload("res://resources/textures/ceiling/sky_dark.png"),
+	preload("res://resources/textures/ceiling/stars.png")
 	]
 const prop_textures = [
 	preload("res://resources/textures/prop/bush.png"),
@@ -43,7 +48,7 @@ const icons = [
 	preload("res://resources/textures/icons/frown.png"),
 	preload("res://resources/textures/icons/neutral.png")
 ]
-var icons_max = 8
+var icons_max = 4
 var icons_picked = []
 
 var portal = preload("res://nodes/portal.tscn")
