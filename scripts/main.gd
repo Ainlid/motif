@@ -15,30 +15,16 @@ var mat_ceiling = preload("res://resources/materials/ceiling.tres")
 var mat_prop = preload("res://resources/materials/prop.tres")
 
 const floor_textures = [
-	preload("res://resources/textures/floor/dirt.png"),
-	preload("res://resources/textures/floor/grass.png")
+	preload("res://resources/textures/floor/lines_random.png")
 	]
 const wall_textures = [
-	preload("res://resources/textures/wall/trees.png"),
-	preload("res://resources/textures/wall/trees_blue.png"),
-	preload("res://resources/textures/wall/trees_green.png"),
-	preload("res://resources/textures/wall/house.png"),
-	preload("res://resources/textures/wall/house_red.png"),
-	preload("res://resources/textures/wall/house_glow.png")
+	preload("res://resources/textures/wall/stripes_vertical.png")
 	]
 const ceiling_textures = [
-	preload("res://resources/textures/ceiling/sky_blue.png"),
-	preload("res://resources/textures/ceiling/sky_orange.png"),
-	preload("res://resources/textures/ceiling/sky_gray.png"),
-	preload("res://resources/textures/ceiling/sky_pink.png"),
-	preload("res://resources/textures/ceiling/sky_green.png"),
-	preload("res://resources/textures/ceiling/sky_dark.png"),
-	preload("res://resources/textures/ceiling/stars.png")
+	preload("res://resources/textures/ceiling/waves.png")
 	]
 const prop_textures = [
-	preload("res://resources/textures/prop/bush.png"),
-	preload("res://resources/textures/prop/bush_blue.png"),
-	preload("res://resources/textures/prop/bush_red.png")
+	preload("res://resources/textures/prop/semicircle.png")
 	]
 
 const dots_icon = preload("res://resources/textures/icons/dots.png")
@@ -68,10 +54,30 @@ func _ready():
 	_generate_maze()
 
 func _set_textures():
+	#floor
 	mat_floor.albedo_texture = floor_textures[global_rng.rng.randi()%floor_textures.size()]
+	var floor_hue = global_rng.rng.randf()
+	var floor_sat = global_rng.rng.randf()
+	var floor_val = global_rng.rng.randf_range(0.5, 1.0)
+	mat_floor.albedo_color = Color.from_hsv(floor_hue, floor_sat, floor_val)
+	#wall
 	mat_wall.albedo_texture = wall_textures[global_rng.rng.randi()%wall_textures.size()]
+	var wall_hue = global_rng.rng.randf()
+	var wall_sat = global_rng.rng.randf()
+	var wall_val = global_rng.rng.randf_range(0.5, 1.0)
+	mat_wall.albedo_color = Color.from_hsv(wall_hue, wall_sat, wall_val)
+	#ceiling
 	mat_ceiling.albedo_texture = ceiling_textures[global_rng.rng.randi()%ceiling_textures.size()]
+	var ceiling_hue = global_rng.rng.randf()
+	var ceiling_sat = global_rng.rng.randf()
+	var ceiling_val = global_rng.rng.randf_range(0.5, 1.0)
+	mat_ceiling.albedo_color = Color.from_hsv(ceiling_hue, ceiling_sat, ceiling_val)
+	#prop
 	mat_prop.albedo_texture = prop_textures[global_rng.rng.randi()%prop_textures.size()]
+	var prop_hue = global_rng.rng.randf()
+	var prop_sat = global_rng.rng.randf()
+	var prop_val = global_rng.rng.randf_range(0.5, 1.0)
+	mat_prop.albedo_color = Color.from_hsv(prop_hue, prop_sat, prop_val)
 
 func _set_up_env():
 	var env = worldenv.environment
