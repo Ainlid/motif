@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/waves.png-5681010597c374a31b1bdd327e2116f6.stex"
+path="res://.import/stripes_horizontal.png-3a17c49ab02bf4bad36b8d238572767c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/ceiling/waves.png"
-dest_files=[ "res://.import/waves.png-5681010597c374a31b1bdd327e2116f6.stex" ]
+source_file="res://resources/textures/patterns/stripes_horizontal.png"
+dest_files=[ "res://.import/stripes_horizontal.png-3a17c49ab02bf4bad36b8d238572767c.stex" ]
 
 [params]
 
