@@ -9,6 +9,26 @@ onready var gridmap = $gridmap
 
 var player = preload("res://nodes/player.tscn")
 
+#Sweetie 16
+const palette = [
+	Color("1a1c2c"),
+	Color("5d275d"),
+	Color("b13e53"),
+	Color("ef7d57"),
+	Color("ffcd75"),
+	Color("a7f070"),
+	Color("38b764"),
+	Color("257179"),
+	Color("29366f"),
+	Color("3b5dc9"),
+	Color("41a6f6"),
+	Color("73eff7"),
+	Color("f4f4f4"),
+	Color("94b0c2"),
+	Color("566c86"),
+	Color("333c57")
+]
+
 const tile_mats = [
 	preload("res://resources/materials/floor.tres"),
 	preload("res://resources/materials/wall.tres"),
@@ -43,6 +63,7 @@ var prop = preload("res://nodes/prop.tscn")
 var npc = preload("res://nodes/npc.tscn")
 
 onready var worldenv = $worldenv
+onready var filter = $filter
 
 func _ready():
 	_set_textures()
@@ -58,23 +79,22 @@ func _set_textures():
 	#tiles
 	for mat in tile_mats:
 		mat.albedo_texture = patterns[global_rng.rng.randi()%patterns.size()]
-		var hue = global_rng.rng.randf()
-		var sat = global_rng.rng.randf()
-		var val = global_rng.rng.randf_range(0.5, 1.0)
-		mat.albedo_color = Color.from_hsv(hue, sat, val)
+		mat.albedo_color = _pick_color()
 	#props
 	mat_prop.albedo_texture = prop_textures[global_rng.rng.randi()%prop_textures.size()]
-	var prop_hue = global_rng.rng.randf()
-	var prop_sat = global_rng.rng.randf()
-	var prop_val = global_rng.rng.randf_range(0.5, 1.0)
-	mat_prop.albedo_color = Color.from_hsv(prop_hue, prop_sat, prop_val)
+	mat_prop.albedo_color = _pick_color()
 
 func _set_up_env():
 	var env = worldenv.environment
-	var bg_col = Color.from_hsv(global_rng.rng.randf(), global_rng.rng.randf_range(0.0, 0.4), global_rng.rng.randf_range(0.2, 0.8))
+	var bg_col = _pick_color()
 	env.background_color = bg_col
 	env.fog_color = bg_col
+	filter.modulate = _pick_color()
+	filter.modulate.a = 0.5
 	#env.ambient_light_color = Color.from_hsv(randf(), rand_range(0.0, 0.5), 1.0)
+
+func _pick_color():
+	return palette[global_rng.rng.randi()%palette.size()]
 
 func _pick_icons():
 	for n in icons_max:
