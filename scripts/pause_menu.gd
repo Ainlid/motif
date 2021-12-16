@@ -24,7 +24,7 @@ func _menu_pressed():
 	menu_dialog.popup_centered()
 
 func _menu_confirmed():
-	fader._fade_start(fader.menu_path)
+	fader._fade_to_menu()
 
 func _input(event):
 	if event.is_action_pressed("escape"):

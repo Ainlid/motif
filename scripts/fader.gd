@@ -5,14 +5,12 @@ const menu_path = "res://scenes/main_menu.tscn"
 const dream_path = "res://scenes/main.tscn"
 
 var duration = 0.5
-var rect
-var tween
-var timer
+onready var rect = $rect
+onready var tween = $tween
+onready var timer = $timer
+onready var sfx = $sfx
 
 func _ready():
-	rect = $rect
-	tween = $tween
-	timer = $timer
 	timer.wait_time = duration
 
 func _fade_start(var scene_path):
@@ -44,7 +42,15 @@ func _reload_scene():
 func _next_dream():
 	global_rng._randomize_rng()
 	_fade_start(dream_path)
+	_play_sfx()
+
+func _fade_to_menu():
+	_fade_start(menu_path)
+	_play_sfx()
 
 func _change_scene():
 	get_tree().change_scene(path)
 	_fade_in()
+
+func _play_sfx():
+	sfx.play()
