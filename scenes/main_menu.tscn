@@ -36,12 +36,12 @@ __meta__ = {
 
 [node name="title" type="Label" parent="menu"]
 margin_left = 126.0
-margin_top = 339.394
-margin_right = 755.0
-margin_bottom = 433.394
+margin_top = 339.0
+margin_right = 342.0
+margin_bottom = 433.0
 custom_fonts/font = ExtResource( 6 )
 custom_styles/normal = ExtResource( 5 )
-text = "project \"mazedreams\""
+text = "motif"
 align = 1
 valign = 1
 __meta__ = {

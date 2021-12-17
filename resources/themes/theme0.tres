@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=19 format=2]
+[gd_resource type="Theme" load_steps=20 format=2]
 
 [ext_resource path="res://resources/fonts/regular.tres" type="DynamicFont" id=1]
 [ext_resource path="res://resources/textures/ui/grabber/grabber_disabled.png" type="Texture" id=2]
@@ -107,6 +107,18 @@ corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0, 0, 0, 1 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
 [sub_resource type="StyleBoxFlat" id=13]
 bg_color = Color( 0.768627, 0.768627, 0.768627, 1 )
 border_width_left = 2
@@ -188,6 +200,7 @@ LineEdit/styles/focus = SubResource( 9 )
 LineEdit/styles/normal = SubResource( 8 )
 LineEdit/styles/read_only = SubResource( 10 )
 Panel/styles/panel = SubResource( 7 )
+PanelContainer/styles/panel = SubResource( 15 )
 TabContainer/colors/font_color_bg = Color( 0, 0, 0, 1 )
 TabContainer/colors/font_color_disabled = Color( 0.501961, 0.501961, 0.501961, 1 )
 TabContainer/colors/font_color_fg = Color( 0, 0, 0, 1 )
