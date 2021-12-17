@@ -57,7 +57,17 @@ const patterns = [
 	]
 
 const prop_textures = [
-	preload("res://resources/textures/prop/semicircle.png")
+	preload("res://resources/textures/prop/semicircle.png"),
+	preload("res://resources/textures/prop/semicircle2.png"),
+	preload("res://resources/textures/prop/circle.png"),
+	preload("res://resources/textures/prop/square.png"),
+	preload("res://resources/textures/prop/triangle.png"),
+	preload("res://resources/textures/prop/triangle2.png"),
+	preload("res://resources/textures/prop/line.png"),
+	preload("res://resources/textures/prop/line2.png"),
+	preload("res://resources/textures/prop/ring.png"),
+	preload("res://resources/textures/prop/frame.png"),
+	preload("res://resources/textures/prop/diamond.png")
 ]
 
 var portal = preload("res://nodes/portal.tscn")
