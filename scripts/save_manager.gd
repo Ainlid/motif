@@ -1,6 +1,6 @@
 extends Node
 
-const config_path = "user://mazedreams.cfg"
+const config_path = "user://config.cfg"
 var config_file = ConfigFile.new()
 
 var default_config = {
@@ -15,7 +15,7 @@ var default_config = {
 
 var config_data = default_config
 
-const data_path = "user://mazedreams.dat"
+const data_path = "user://save.dat"
 
 var default_data = {
 	"dreams" : {}

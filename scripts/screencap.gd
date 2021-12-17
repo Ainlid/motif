@@ -9,7 +9,7 @@ func _unhandled_input(event):
 		var dir_path = OS.get_executable_path().get_base_dir() + "/screenshots"
 		if !directory.dir_exists(dir_path):
 			directory.make_dir(dir_path)
-		var img_path = dir_path + "/mazedreams"
+		var img_path = dir_path + "/motif"
 		img_path += str(date.day) + "_"
 		img_path += str(date.month) + "_"
 		img_path += str(date.year) + "_at_"

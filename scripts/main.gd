@@ -39,9 +39,21 @@ var mat_prop = preload("res://resources/materials/prop.tres")
 
 const patterns = [
 	preload("res://resources/textures/patterns/lines_random.png"),
-	preload("res://resources/textures/patterns/stripes_vertical.png"),
-	preload("res://resources/textures/patterns/stripes_horizontal.png"),
-	preload("res://resources/textures/patterns/waves.png")
+	preload("res://resources/textures/patterns/lines_vertical.png"),
+	preload("res://resources/textures/patterns/lines_horizontal.png"),
+	preload("res://resources/textures/patterns/lines_diagonal.png"),
+	preload("res://resources/textures/patterns/waves.png"),
+	preload("res://resources/textures/patterns/waves_square.png"),
+	preload("res://resources/textures/patterns/waves_sine.png"),
+	preload("res://resources/textures/patterns/zigzag.png"),
+	preload("res://resources/textures/patterns/grid.png"),
+	preload("res://resources/textures/patterns/grid_triangle.png"),
+	preload("res://resources/textures/patterns/grid_diamond.png"),
+	preload("res://resources/textures/patterns/grid_circles.png"),
+	preload("res://resources/textures/patterns/bricks.png"),
+	preload("res://resources/textures/patterns/circles.png"),
+	preload("res://resources/textures/patterns/hexagons.png"),
+	preload("res://resources/textures/patterns/rectangles.png")
 	]
 
 const prop_textures = [

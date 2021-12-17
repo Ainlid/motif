@@ -20,7 +20,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="mazedreams"
+config/name="motif"
+config/description="minimalist dream generator"
 run/main_scene="res://scenes/main_menu.tscn"
 config/icon="res://icon.png"
 

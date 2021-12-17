@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stripes_vertical.png-724f3d0e642c4b876feae0ce1aa80992.stex"
+path="res://.import/circles.png-b65203b4cc836ec67ebbe92af19669ca.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/textures/patterns/stripes_vertical.png"
-dest_files=[ "res://.import/stripes_vertical.png-724f3d0e642c4b876feae0ce1aa80992.stex" ]
+source_file="res://resources/textures/patterns/circles.png"
+dest_files=[ "res://.import/circles.png-b65203b4cc836ec67ebbe92af19669ca.stex" ]
 
 [params]
 
